@@ -1,11 +1,11 @@
 # Traveling Salesman Problem
 
 Definition from wikipedia:
-> The travelling salesman problem (TSP) asks the following question: Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?
+> The travelling salesman problem asks the following question: Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?
 
 There are a finite set of vertice (cities) and a finite set of edges (connection between cities). Each edge has an associated distance `d > 0`. That distance can be travel time, kilometers or the monetary cost associated with traveling from one city to another. 
 
-To solve the TSP as mixed integer linear problem (MILP), one way is the Miller–Tucker–Zemlin formulation.
+To solve as mixed integer linear problem, one way is the Miller–Tucker–Zemlin formulation.
 
 ## Requirement
 
@@ -20,11 +20,11 @@ sudo apt-get install liglpk-dev
 sudo apt-get install r-cran-rglpk
 ```
 
-Note that the above command are installations for Debian-based distributions. See the [instructions](https://roi.r-forge.r-project.org/installation.html) for other distributions or operating systems.
+Note that, the above commands are for the installation in Debian-based distributions. See the [instructions](https://roi.r-forge.r-project.org/installation.html) for other distributions or operating systems.
 
 ## Results
 
-The results from the solver will look like:
+An example of the results from the solver will look like:
 ```
 <SOLVER MSG>  ----
 GLPK Simplex Optimizer, v4.65
@@ -47,7 +47,7 @@ INTEGER OPTIMAL SOLUTION FOUND
 <!SOLVER MSG> ----
 ```
 
-Once extract the results and organize for trip planner, then the iternary is:
+Once extract the results and organize for trip planner, then the iternary can be viewed as:
 ```
 | trip_id|property | idx_val|         x|           y|
 |-------:|:--------|-------:|---------:|-----------:|
@@ -73,4 +73,4 @@ Once extract the results and organize for trip planner, then the iternary is:
 |      10|to       |      10| 494.86847| 475.8293768|
 ```
 Visualization of the trip planner:
-![result]()
+![result](https://github.com/ornwipa/traveling_salesman/blob/main/result.png)
