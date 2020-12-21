@@ -24,29 +24,6 @@ Note that, the above commands are for the installation in Debian-based distribut
 
 ## Results
 
-An example of the results from the solver will look like:
-```
-<SOLVER MSG>  ----
-GLPK Simplex Optimizer, v4.65
-110 rows, 110 columns, 434 non-zeros
-      0: obj =   0.000000000e+00 inf =   2.900e+01 (29)
-     30: obj =   2.233834282e+03 inf =   0.000e+00 (0)
-*    63: obj =   9.495191454e+02 inf =   3.994e-16 (0)
-OPTIMAL LP SOLUTION FOUND
-GLPK Integer Optimizer, v4.65
-110 rows, 110 columns, 434 non-zeros
-100 integer variables, none of which are binary
-Integer optimization begins...
-Long-step dual simplex will be used
-+    63: mip =     not found yet >=              -inf        (1; 0)
-+   165: >>>>>   1.508872962e+03 >=   9.495191454e+02  37.1% (15; 0)
-+   533: >>>>>   1.492351976e+03 >=   1.025876490e+03  31.3% (39; 11)
-+  1105: >>>>>   1.457136124e+03 >=   1.354455390e+03   7.0% (60; 41)
-+  1681: mip =   1.457136124e+03 >=     tree is empty   0.0% (0; 235)
-INTEGER OPTIMAL SOLUTION FOUND
-<!SOLVER MSG> ----
-```
-
 Once extract the results and organize for trip planner, then the itinerary can be viewed as:
 ```
 | trip_id|property | idx_val|         x|           y|
