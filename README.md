@@ -47,30 +47,34 @@ INTEGER OPTIMAL SOLUTION FOUND
 <!SOLVER MSG> ----
 ```
 
-Once extract the results and organize for trip planner, then the iternary can be viewed as:
+Once extract the results and organize for trip planner, then the itinerary can be viewed as:
 ```
 | trip_id|property | idx_val|         x|           y|
 |-------:|:--------|-------:|---------:|-----------:|
 |       1|from     |       9| 363.85263|  89.4817924|
 |       1|to       |       1| 360.45195|  17.2677175|
-|       2|from     |       4| 443.06228|   0.5682933|
-|       2|to       |       2| 437.88660|  76.1867451|
-|       3|from     |      10| 494.86847| 475.8293768|
-|       3|to       |       3| 380.49116| 367.8424762|
-|       4|from     |       1| 360.45195|  17.2677175|
-|       4|to       |       4| 443.06228|   0.5682933|
-|       5|from     |       7| 162.54769| 194.0719908|
-|       5|to       |       5| 228.24048| 195.6016676|
+|       2|from     |       1| 360.45195|  17.2677175|
+|       2|to       |       4| 443.06228|   0.5682933|
+|       3|from     |       4| 443.06228|   0.5682933|
+|       3|to       |       2| 437.88660|  76.1867451|
+|       4|from     |       2| 437.88660|  76.1867451|
+|       4|to       |      10| 494.86847| 475.8293768|
+|       5|from     |      10| 494.86847| 475.8293768|
+|       5|to       |       3| 380.49116| 367.8424762|
 |       6|from     |       3| 380.49116| 367.8424762|
 |       6|to       |       6|  83.18589| 231.2473271|
 |       7|from     |       6|  83.18589| 231.2473271|
 |       7|to       |       7| 162.54769| 194.0719908|
-|       8|from     |       5| 228.24048| 195.6016676|
-|       8|to       |       8| 254.61217| 201.2425709|
-|       9|from     |       8| 254.61217| 201.2425709|
-|       9|to       |       9| 363.85263|  89.4817924|
-|      10|from     |       2| 437.88660|  76.1867451|
-|      10|to       |      10| 494.86847| 475.8293768|
+|       8|from     |       7| 162.54769| 194.0719908|
+|       8|to       |       5| 228.24048| 195.6016676|
+|       9|from     |       5| 228.24048| 195.6016676|
+|       9|to       |       8| 254.61217| 201.2425709|
+|      10|from     |       8| 254.61217| 201.2425709|
+|      10|to       |       9| 363.85263|  89.4817924|
 ```
 Visualization of the trip planner:
 ![result](https://github.com/ornwipa/traveling_salesman/blob/main/result.png)
+
+## Acknowledgement
+
+Thank to the guideline in [R for Operations Research](https://www.r-orms.org/) for parts of the codes and analyses.

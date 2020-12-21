@@ -40,11 +40,11 @@ model <- MIPModel() %>%
   # constraint to not go from a city to the same city
   set_bounds(x[i, i], ub = 0, i = 1:n) %>%
   
-  # constraint to visit each city once
-  add_constraint(sum_expr(x[i, j], i = 1:n) == 1, j = 1:n) %>%
-  
   # constraint to leave each city once
   add_constraint(sum_expr(x[i, j], j = 1:n) == 1, i = 1:n) %>%
+  
+  # constraint to visit each city once
+  add_constraint(sum_expr(x[i, j], i = 1:n) == 1, j = 1:n) %>%
   
   # constraint for no sub-tour
   add_constraint(u[i] >= 2, i = 2:n) %>%
@@ -55,12 +55,24 @@ library(ompr.roi)
 library(ROI.plugin.glpk)
 result <- solve_model(model, with_ROI(solver = "glpk", verbose = TRUE))
 
-# extract the solutions:
+# extract the solution:
 solution <- get_solution(result, x[i, j]) %>% filter(value > 0) 
 kable(solution)
 
+# connect to-from cities in the solution:
+solution_path <- solution
+for (k in 1:(n-1)) {
+  for (l in 1:n) {
+    if (solution_path[k,3] == solution[l,2]) {
+      solution_path[k+1,2] <- solution[l,2]
+      solution_path[k+1,3] <- solution[l,3]
+    }
+  }
+}
+kable(solution_path)
+
 # create trip planner, link back indexes of the model to actual cities:
-paths <- select(solution, i, j) %>% rename(from = i, to = j) %>% 
+paths <- select(solution_path, i, j) %>% rename(from = i, to = j) %>% 
   mutate(trip_id = row_number()) %>% 
   tidyr::gather(property, idx_val, from:to) %>% 
   mutate(idx_val = as.integer(idx_val)) %>% 
